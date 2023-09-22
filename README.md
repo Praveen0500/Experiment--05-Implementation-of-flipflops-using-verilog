@@ -1,8 +1,14 @@
 # Experiment--05-Implementation-of-flipflops-using-verilog
-### AIM: To implement all the flipflops using verilog and validating their functionality using their functional tables
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+To implement all the flipflops using verilog and validating their functionality using their functional tables
+### HARDWARE REQUIRED: 
+
+PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED: 
+
+Quartus prime
 ### THEORY 
+
 SR Flip-Flop
 SR flip-flop operates with only positive clock transitions or negative clock transitions. Whereas, SR latch operates with enable signal. The circuit diagram of SR flip-flop is shown in the following figure.
 
@@ -102,39 +108,69 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
 
+1.Using nand gates and wires construct sr flip flop.
 
+2.Repeat same steps to construct JK,D,T flipflops.
+
+3.Find Rtl logic and timing diagram for all flipflops.
+
+4.end the program
 
 ### PROGRAM 
-/*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
 
+Developed by: PRAVEEN S
 
+RegisterNumber: 212222240078
 
-
-
-
+SR FLIPFLOP:
+```
+module SR(s,r,clk,q,qbar);
+input s,r,clk;
+output q,qbar;
+wire x,y;
+nand(x,s,clk);
+nand(y,r,clk);
+nand(q,x,qbar);
+nand(qbar,y,q);
+endmodule
+```
+JK FLIPFLOP:
+```
+module JK (j,k,clk,q,qbar);
+input j,k,clk;
+output q,qbar;
+wire x,y;
+nand(x,j,clk,qbar);
+nand(y,k,clk,q);
+nand(q,x,qbar);
+nand(qbar,y,q);
+endmodule
+```
 ### RTL LOGIC FOR FLIPFLOPS 
 
+SR FLIPFLOP:
+
+![image](https://github.com/Praveen0500/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120218611/05028f1e-125e-46c7-beb1-38c8735a0b1b)
 
 
+JK FLIPFLOP:
 
-
-
-
+![image](https://github.com/Praveen0500/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120218611/bf542b80-b3e8-4b21-8aef-5f061cb8ada7)
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+SR FLIPFLOP:
 
+![image](https://github.com/Praveen0500/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120218611/2d4b430d-db7b-4c2a-bc38-33b5395684d4)
 
+JK FLIPFLOP:
 
-
-
+![image](https://github.com/Praveen0500/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120218611/9de01bbb-2674-492c-adf0-2f3d1ef6736d)
 
 
 ### RESULTS 
+
+All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
